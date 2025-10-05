@@ -14,9 +14,9 @@ function displayTime() {
   let hr = hours < 10 ? "0" + hours : hours;
   let min = minutes < 10 ? "0" + minutes : minutes;
   let sec = seconds < 10 ? "0" + seconds : seconds;
-  let ms = milliseconds < 10 ? "00" + milliseconds : 
-           milliseconds < 100 ? "0" + milliseconds : 
-           milliseconds;
+  let ms = Math.floor(milliseconds / 10)
+    .toString()
+    .padStart(2, "0");
 
   display.innerText = `${hr}:${min}:${sec}:${ms}`;
 }
